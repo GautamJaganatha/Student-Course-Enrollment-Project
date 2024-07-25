@@ -1,4 +1,4 @@
-package com.Learning.SCEP_Backend.dto;
+package com.Learning.SCEP_Backend.dto.Auth;
 
 import com.Learning.SCEP_Backend.enums.Roles;
 import lombok.Data;

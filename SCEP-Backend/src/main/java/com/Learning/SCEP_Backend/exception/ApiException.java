@@ -3,7 +3,6 @@ package com.Learning.SCEP_Backend.exception;
 import org.springframework.http.HttpStatus;
 
 import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 public class ApiException {
     private final String message;

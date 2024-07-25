@@ -6,12 +6,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/admin/")
+@RequestMapping("/api/")
 @RequiredArgsConstructor
 public class homeController {
 
-    @GetMapping("/check")
+    @GetMapping("admin/check")
     public String GettingResult(){
         return "Success";
+    }
+
+    @GetMapping("/student/check")
+    public String gettingResultofStudent(){
+        return "Success for Student Authentication";
     }
 }

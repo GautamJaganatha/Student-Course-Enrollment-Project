@@ -1,8 +1,7 @@
 package com.Learning.SCEP_Backend.service.Auth;
 
-import com.Learning.SCEP_Backend.dto.SignupRequest;
+import com.Learning.SCEP_Backend.dto.Auth.SignupRequest;
 import com.Learning.SCEP_Backend.dto.StudentDto;
-import com.Learning.SCEP_Backend.entity.Student;
 
 import java.util.List;
 

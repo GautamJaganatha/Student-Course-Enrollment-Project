@@ -1,8 +1,11 @@
 package com.Learning.SCEP_Backend.controller.authenticate.Admin;
 
+import com.Learning.SCEP_Backend.dto.DepartmentDto;
 import com.Learning.SCEP_Backend.dto.StudentDto;
 import com.Learning.SCEP_Backend.service.Auth.AuthService;
+import com.Learning.SCEP_Backend.service.DepartmentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +17,8 @@ import java.util.List;
 public class AdminController {
 
     private final AuthService authService;
+
+    private final DepartmentService departmentService;
 
     @PutMapping("updateStudent")
     public ResponseEntity<?> updateStudent(@RequestBody StudentDto studentDto){
@@ -33,8 +38,32 @@ public class AdminController {
     }
 
     @GetMapping("GetAllStudents")
-    public ResponseEntity<List<?>> getAllStudnets(){
+    public ResponseEntity<List<?>> getAllStudents(){
         return ResponseEntity.ok(authService.getAllStudents());
+    }
+
+
+    @PostMapping("/addDepartments")
+    public ResponseEntity<DepartmentDto> addDepartments(@RequestBody DepartmentDto departmentDto){
+        DepartmentDto dto = departmentService.addDepartment(departmentDto);
+
+
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(dto);
+    }
+
+    @GetMapping("/getAllDepartments")
+    public ResponseEntity<List<DepartmentDto>> getAllDepartments(){
+        return ResponseEntity.ok(departmentService.getAllDepartment());
+    }
+
+    @DeleteMapping("deleteDepartment/{id}")
+    public ResponseEntity<?> deleteDepartmentById(@PathVariable Long id){
+        boolean check = departmentService.deleteDepartmentById(id);
+        if (check){
+            return ResponseEntity.ok().body("Department with id "+ id  + " successfully deleted");
+        }
+        return ResponseEntity.ok().body("Department not found with id: "+id);
     }
 
 }

@@ -1,6 +1,6 @@
 package com.Learning.SCEP_Backend.service.Auth;
 
-import com.Learning.SCEP_Backend.dto.SignupRequest;
+import com.Learning.SCEP_Backend.dto.Auth.SignupRequest;
 import com.Learning.SCEP_Backend.dto.StudentDto;
 import com.Learning.SCEP_Backend.entity.Student;
 import com.Learning.SCEP_Backend.enums.Roles;
@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
